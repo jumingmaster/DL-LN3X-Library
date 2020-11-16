@@ -45,7 +45,7 @@ public:
         *       Public interface
         *       change carefully
         */
-
+       void Open (void);
         /* flagSet
        *  @func       file flag set
        *  @pram       open flag  

@@ -74,8 +74,6 @@ void *readSerialThread(void *arg)
 
 }
 
-
-
 void Serial::flagSet(int rwFlag)
 {
         using namespace std;
@@ -241,8 +239,8 @@ Serial::Serial(
                 perror("Can't open serial port");
                 exit(EXIT_FAILURE);
         }
-
-        cout << port << " connected." << endl;
+        portName = port;
+        std::cout << portName << " connected." << std::endl;
 
         /**/
         tcgetattr (fd, &tio);
@@ -314,8 +312,8 @@ void Serial::writeSerial(void *buf)
                 return;
         }
         sendBytes += sendSize;
-        showSendMsg(buf, len);
-
+        //showSendMsg(buf, len);
+        
         tcflush(fd, TCIOFLUSH);
 }
 
